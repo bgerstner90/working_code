@@ -122,7 +122,7 @@ all_mammals <-rl_comp_groups(group = c('mammals'), key = token)
 
 #turn the list into a dataframe so the merge can be completed
 all_mammals <- as.data.frame(all_mammals$result)
-SA_mammals <- merge(all_mammals, all_species_south_america, by="taxonid")
+SA_mammals <- merge(all_mammals, c6, by="taxonid")
 SA_mammals <- distinct(SA_mammals, scientific_name, .keep_all = TRUE)
 
 
@@ -160,7 +160,7 @@ get_habitat <- function(ID) {
 }
 
 # Apply get_habitat to each row of latin_american_mammals
-all_habitat_mammals <- latin_american_mammals %>%
+all_habitat_mammals <- SA_mammals %>%
   rowwise %>%
   do(get_habitat(.$taxonid))
 

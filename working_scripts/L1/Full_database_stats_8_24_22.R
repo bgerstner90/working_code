@@ -7,9 +7,9 @@
 #By: Beth E. Gerstner
 
 #read in mammal database
-mam <- read.csv("/Volumes/GoogleDrive/Shared drives/SpaCE_Lab_neotropical_frugivores/Manuscripts/Database_Manuscript/Database_paper/EDI_resubmission_2022/databases_2022/Frugivoria_mammal_database_2022.csv")
-#read in bird database
-bird<- read.csv("/Volumes/GoogleDrive/Shared drives/SpaCE_Lab_neotropical_frugivores/Manuscripts/Database_Manuscript/Database_paper/EDI_resubmission_2022/databases_2022/Frugivoria_bird_database_2022.csv")
+mam <- read.csv("G:/Shared drives/SpaCE_Lab_neotropical_frugivores/Manuscripts/Database_Manuscript/Database_paper/EDI_resubmission_2022/databases_2022/Frugivoria_mammal_database_2022.csv")
+
+bird<- read.csv("G:/Shared drives/SpaCE_Lab_neotropical_frugivores/Manuscripts/Database_Manuscript/Database_paper/EDI_resubmission_2022/databases_2022/Frugivoria_bird_database_2022.csv")
 
 
 #Needed stats
@@ -45,9 +45,9 @@ sexual_dim_b <- length(which(!is.na(bird$sexual_dimorphism)))
 range_1_b <- length(which(!is.na(bird$observed_range_sqkm)))
 range_2_b <-  length(which(!is.na(bird$inferred_range_sqkm)))
 
-new_bird_traits <-  longevity_b + habitat_special_b + gen_time_b + body_size_b + sexual_dim_b + range_1_b + range_2_b # 6843 new traits
+new_bird_traits <-  longevity_b + habitat_special_b + gen_time_b + body_size_b + sexual_dim_b + range_1_b + range_2_b # 6842 new traits
 
-all_bird_traits <-  elton_traits_b + new_bird_traits #12,559 traits
+all_bird_traits <-  elton_traits_b + new_bird_traits #12,558 traits
 
 #b) for mammals
 
@@ -89,7 +89,7 @@ new_mam_traits <- diet_categ_m + longevity_m +home_range_m +range_1_m +range_2_m
 all_mam_traits <- new_mam_traits + pantheria_traits + elton_traits_m #22,515
 
 #Total number of traits in the entire dataset
-all_mam_traits + all_bird_traits #35,074
+all_mam_traits + all_bird_traits #35,073
 #2) # of genera
 #a) birds 
 #b) mammals
@@ -225,7 +225,7 @@ total_bird_impute/new_bird_traits # 2.4% imputed to family or genus
 full_impute_b_m <- impute_bird_family_new + impute_bird_genus_new + impute_mam_fam_new + impute_mam_genus_new # 970
 
 #all new traits for birds and mammals
-all_new_traits_b_m <-new_mam_traits + new_bird_traits #11,247
+all_new_traits_b_m <-new_mam_traits + new_bird_traits #11,246
 
 #percent imputed in total for new traits (birds and mammals)
 full_impute_b_m/all_new_traits_b_m #= 8.62% imputed for newly added traits
